@@ -22,10 +22,6 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_tucana
 # Audio
 TARGET_PROVIDES_AUDIO_EXTNS := true
 
-# FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.tucana
-TARGET_USES_FOD_ZPOS := true
-
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/manifest.xml
 
@@ -55,6 +51,10 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
+
+# UDFPS
+TARGET_SURFACEFLINGER_UDFPS_LIB := //$(COMMON_PATH):libudfps_extension.xiaomi_sm6150
+TARGET_USES_FOD_ZPOS := true
 
 # Inherit from proprietary files
 include vendor/xiaomi/tucana/BoardConfigVendor.mk
